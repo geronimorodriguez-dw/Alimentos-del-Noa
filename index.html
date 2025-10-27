@@ -31,37 +31,136 @@
     </p>
   </section>
 
-  <section id="productos">
-    <h2>Nuestros Productos</h2>
-    <div class="galeria">
-      <div class="item">
-        <img src="Img/Hornet-logo.jpeg" alt="Panificación" />
-        <p>Panificación artesanal congelada</p>
-      </div>
-      <!-- La Montevideana -->
-<div class="item">
-  <a href="#catalogoMontevideana">
-    <img src="Img/la-montevideana.jpeg" alt="Helados">
-  </a>
-  <p>Postres Helados e Impulsivos</p>
-</div>
+<section id="productos">
+  <h2>Nuestros Productos</h2>
 
-<!-- Modal (ventana emergente) -->
-<div id="catalogoMontevideana" class="modal">
-  <div class="modal-content">
-    <a href="#" class="close">&times;</a>
-    <h2>Catálogo La Montevideana</h2>
+  <div class="galeria">
 
-    <!-- Catálogo PDF embebido -->
-    <iframe src="docs/catalogo-montevideana.pdf"></iframe>
-  </div>
-</div>
-      <div class="item">
-        <img src="Img/swift-logo.jpeg" alt="Hamburguesas" />
-        <p>Hamburguesas</p>
-      </div>
+    <!-- Hornet -->
+    <div class="item">
+      <a href="#catalogoHornet">
+        <img src="Img/Hornet-logo.jpeg" alt="Hornet">
+      </a>
+      <p>Panificados Hornet</p>
     </div>
-  </section>
+
+    <!-- La Montevideana -->
+    <div class="item">
+      <a href="#catalogoMontevideana">
+        <img src="Img/la-montevideana.jpeg" alt="La Montevideana">
+      </a>
+      <p>Helados La Montevideana</p>
+    </div>
+
+    <!-- Veneto -->
+    <div class="item">
+      <a href="#catalogoVeneto">
+        <img src="Img/veneto-logo.jpeg" alt="Veneto">
+      </a>
+      <p>Helados Veneto</p>
+    </div>
+
+    <!-- Swift -->
+    <div class="item">
+      <a href="#catalogoSwift">
+        <img src="Img/swift-logo.jpeg" alt="Swift">
+      </a>
+      <p>Hamburguesas Swift</p>
+    </div>
+
+    <!-- Simplot -->
+    <div class="item">
+      <a href="#catalogoSimplot">
+        <img src="Img/simplot-logo.jpeg" alt="Simplot">
+      </a>
+      <p>Papas Simplot</p>
+    </div>
+
+    <!-- Estadio -->
+    <div class="item">
+      <a href="#catalogoEstadio">
+        <img src="Img/estadio-logo.jpeg" alt="Estadio">
+      </a>
+      <p>Sándwiches Estadio</p>
+    </div>
+
+  </div>
+
+  <!-- Botón Ver Todos -->
+  <div class="ver-todos">
+    <a href="#catalogoHornet" class="btn">Ver todos los catálogos</a>
+  </div>
+
+  <!-- MODALES (uno por marca) -->
+
+  <!-- HORNET -->
+  <div id="catalogoHornet" class="modal">
+    <div class="modal-content">
+      <a href="#" class="close">&times;</a>
+      <a href="#catalogoEstadio" class="prev">&#10094;</a>
+      <a href="#catalogoMontevideana" class="next">&#10095;</a>
+      <h2>Catálogo Hornet</h2>
+      <iframe src="docs/catalogo-hornet.pdf"></iframe>
+    </div>
+  </div>
+
+  <!-- MONTEVIDEANA -->
+  <div id="catalogoMontevideana" class="modal">
+    <div class="modal-content">
+      <a href="#" class="close">&times;</a>
+      <a href="#catalogoHornet" class="prev">&#10094;</a>
+      <a href="#catalogoVeneto" class="next">&#10095;</a>
+      <h2>Catálogo La Montevideana</h2>
+      <iframe src="docs/catalogo-montevideana.pdf"></iframe>
+    </div>
+  </div>
+
+  <!-- VENETO -->
+  <div id="catalogoVeneto" class="modal">
+    <div class="modal-content">
+      <a href="#" class="close">&times;</a>
+      <a href="#catalogoMontevideana" class="prev">&#10094;</a>
+      <a href="#catalogoSwift" class="next">&#10095;</a>
+      <h2>Catálogo Veneto</h2>
+      <iframe src="docs/catalogo-veneto.pdf"></iframe>
+    </div>
+  </div>
+
+  <!-- SWIFT -->
+  <div id="catalogoSwift" class="modal">
+    <div class="modal-content">
+      <a href="#" class="close">&times;</a>
+      <a href="#catalogoVeneto" class="prev">&#10094;</a>
+      <a href="#catalogoSimplot" class="next">&#10095;</a>
+      <h2>Catálogo Swift</h2>
+      <iframe src="docs/catalogo-swift.pdf"></iframe>
+    </div>
+  </div>
+
+  <!-- SIMPLOT -->
+  <div id="catalogoSimplot" class="modal">
+    <div class="modal-content">
+      <a href="#" class="close">&times;</a>
+      <a href="#catalogoSwift" class="prev">&#10094;</a>
+      <a href="#catalogoEstadio" class="next">&#10095;</a>
+      <h2>Catálogo Simplot</h2>
+      <iframe src="docs/catalogo-simplot.pdf"></iframe>
+    </div>
+  </div>
+
+  <!-- ESTADIO -->
+  <div id="catalogoEstadio" class="modal">
+    <div class="modal-content">
+      <a href="#" class="close">&times;</a>
+      <a href="#catalogoSimplot" class="prev">&#10094;</a>
+      <a href="#catalogoHornet" class="next">&#10095;</a>
+      <h2>Catálogo Estadio</h2>
+      <iframe src="docs/catalogo-estadio.pdf"></iframe>
+    </div>
+  </div>
+
+</section>
+
 
   <section id="contacto">
     <h2>Contacto</h2>

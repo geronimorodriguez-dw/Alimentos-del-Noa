@@ -1,3 +1,6 @@
+/*==================================
+  1. REGLAS GENERALES
+==================================*/
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -5,54 +8,49 @@ body {
   color: #333;
 }
 
-header {
-  background-color: #0042ad;
-  color: white;
-  text-align: center;
-  padding: 40px 20px;
-}
-
-h1 {
-    font-size: 50px;
-  margin: 0;
-}
-h2 {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
 section {
   padding: 40px 20px;
   text-align: center;
 }
-.galeria {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  align-items: flex-start; /* alinea el contenido de cada tarjeta */
-}
 
-.item {
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  width: 250px;
-  padding: 10px;
-  margin: 0; /* el gap entre items lo controla .galeria */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between; /* asegura que el texto quede abajo */
-  min-height: 340px; /* mismo alto mínimo para todas las tarjetas */
+p {
+  font-size: 15px;
+  margin-top: 5px;
 }
 
 
-.item img {
-  width: 100%;
-  height: 180px; /* altura fija para alinear imágenes */
-  border-radius: 10px;
+/*==================================
+  2. ENCABEZADO (HEADER) - CORRECCIÓN ESPACIADO
+==================================*/
+header {
+  background-color: #0042ad;
+  color: white;
+  text-align: center;
+  /* REDUCCIÓN CLAVE: Reduce el espacio superior e inferior del header */
+  padding: 20px 20px;
 }
+
+h1 {
+  font-size: 50px;
+  margin: 0; /* Elimina el margen superior/inferior por defecto */
+}
+
+/* El h2 dentro del header es el subtítulo */
+header h2 {
+  font-size: 18px;
+  margin: 0; /* Elimina el margen superior/inferior para pegarlo al h1 */
+}
+
+/* El p dentro del header (Panificación...) */
+header p {
+  margin-top: 5px; /* Pequeño espacio superior para separarlo del h2 */
+  font-size: 15px;
+}
+
+
+/*==================================
+  3. BOTONES
+==================================*/
 .btn-wpp {
   display: inline-block;
   background-color: #25D366;
@@ -68,19 +66,76 @@ section {
   background-color: #1da851;
 }
 
-footer {
-  background-color: #004aad;
+.btn {
+  background: #0077b5;
   color: white;
+  padding: 10px 25px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #005a87;
+}
+
+
+/*==================================
+  4. GALERÍA DE PRODUCTOS
+==================================*/
+.galeria {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px; /* Espacio entre items */
+  margin-top: 20px;
+}
+
+.item {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  width: 250px; /* Ancho fijo para las tarjetas */
+  padding: 10px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between; /* El contenido se separa si hay espacio */
+  min-height: 340px; /* Alto mínimo para todas las tarjetas */
   text-align: center;
-  padding: 15px;
-  font-size: 0.9em;
 }
-p {
-  font-size: 15px;
-  margin-top: 5px;
+
+.item img {
+  width: 100%;
+  height: 180px; /* Altura fija para alinear imágenes */
+  object-fit: contain; /* Mantiene la proporción */
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
-/* ----- Footer con redes sociales ----- */
+
+.item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.item p {
+  margin-top: 8px; /* Espacio entre imagen y nombre */
+  font-size: 14px;
+}
+
+.ver-todos {
+  text-align: center;
+  margin-top: 30px;
+}
+
+
+/*==================================
+  5. FOOTER
+==================================*/
 footer {
+  /* Usando el color #f5f5f5 que tenías en la segunda definición del footer */
   text-align: center;
   background-color: #f5f5f5;
   padding: 20px;
@@ -122,52 +177,58 @@ footer p {
 .social-links a[aria-label="LinkedIn"]:hover {
   color: #0077b5;
 }
-.item img {
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
 
-.item img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-/* ----- Modal (ventana emergente) ----- */
+
+/*==================================
+  6. MODAL (VENTANA EMERGENTE)
+==================================*/
 .modal {
   display: none;
   position: fixed;
-  z-index: 100;
+  z-index: 200;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.8);
   overflow: auto;
 }
 
-/* Al hacer clic en el link, el :target activa el modal */
 .modal:target {
   display: block;
 }
 
-/* Contenedor del contenido */
 .modal-content {
+  position: relative;
   background: #fff;
-  margin: 5% auto;
+  margin: 4% auto;
   padding: 20px;
-  width: 80%;
-  max-width: 800px;
+  width: 85%;
+  max-width: 900px;
   border-radius: 12px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
   animation: fadeIn 0.4s ease;
+  text-align: center;
 }
 
-/* Cierre (botón X) */
+.modal-content h2 {
+  margin-bottom: 10px;
+}
+
+.modal-content iframe {
+  width: 100%;
+  height: 550px;
+  border: none;
+  margin-top: 10px;
+}
+
+/* Botón cerrar */
 .close {
-  float: right;
+  position: absolute;
+  right: 20px;
+  top: 10px;
   text-decoration: none;
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 30px;
   color: #555;
 }
 
@@ -175,15 +236,27 @@ footer p {
   color: red;
 }
 
-/* PDF embebido */
-.modal-content iframe {
-  width: 100%;
-  height: 500px;
-  border: none;
-  margin-top: 15px;
+/* Flechas */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  font-size: 36px;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  transform: translateY(-50%);
+  padding: 0 10px;
+  transition: color 0.2s;
 }
 
-/* Animación de entrada */
+.prev:hover, .next:hover {
+  color: #0077b5;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Animación modal */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
