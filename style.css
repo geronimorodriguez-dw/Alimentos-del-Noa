@@ -38,7 +38,9 @@ h1 {
 /* El h2 dentro del header es el subtítulo */
 header h2 {
   font-size: 18px;
-  margin: 0; /* Elimina el margen superior/inferior para pegarlo al h1 */
+  margin: 5px; /* Elimina el margen superior/inferior para pegarlo al h1 */
+  margin-bottom: 20px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 /* El p dentro del header (Panificación...) */
@@ -260,4 +262,139 @@ footer p {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+/* BOTÓN ABAJO DEL HEADER */
+.pedido-section {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.pedido-section .btn {
+  background-color: #25D366;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.pedido-section .btn:hover {
+  background-color: #1ebe57;
+}
+
+/* MODAL DEL FORMULARIO */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content.pedido {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 450px;
+  margin: 10% auto;
+  position: relative;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+#pedidoForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#pedidoForm input,
+#pedidoForm textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+#pedidoForm label {
+  font-weight: 600;
+}
+
+#pedidoForm .enviar {
+  background-color: #25D366;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+#pedidoForm .enviar:hover {
+  background-color: #1ebe57;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #333;
+}
+
+.modal.active {
+  display: block;
+}
+#pedidoForm label {
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+#pedidoForm input,
+#pedidoForm textarea {
+  margin-bottom: 10px;
+}
+#pedidoForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#pedidoForm label {
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+#pedidoForm input,
+#pedidoForm textarea,
+#pedidoForm select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+#pedidoForm .btn.enviar {
+  background-color: #25D366;
+  border: none;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+#pedidoForm .btn.enviar:hover {
+  background-color: #1EBE57;
 }

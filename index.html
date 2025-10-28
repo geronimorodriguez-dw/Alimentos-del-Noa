@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tu Empresa de Congelados</title>
+  <title>Alimentos del Noa</title>
 
   <!-- Estilos principales -->
   <link rel="stylesheet" href="style.css" />
@@ -19,7 +19,7 @@
   <header>
     <h1>ALIMENTOS DEL NOA</h1>
     <h2>Selva - Sgo del Estero</h2>
-    <p>Panificación • Helados • Hamburguesas</p>
+    <p>Panificación • Helados • Hamburguesas • Papas Congeladas • Sandwiches</p>
   </header>
 
   <section id="nosotros">
@@ -85,6 +85,47 @@
     </div>
 
   </div>
+<!-- SECCIÓN PEDIDO -->
+<section id="pedido" class="pedido-section">
+  <button id="abrirPedido" class="btn">🛒 Cargar pedido</button>
+</section>
+
+<!-- MODAL DEL FORMULARIO -->
+<div id="modalPedido" class="modal">
+  <div class="modal-content pedido">
+    <button class="close" id="cerrarPedido">&times;</button>
+    <h2>Cargar pedido</h2>
+
+    <form id="pedidoForm">
+      <label for="nombreNegocio">1️⃣ Nombre del negocio:</label>
+      <input type="text" id="nombreNegocio" name="nombreNegocio" required />
+
+      <label for="nombreDueno">2️⃣ Nombre del dueño:</label>
+      <input type="text" id="nombreDueno" name="nombreDueno" required />
+
+      <label for="localidad">3️⃣ Localidad:</label>
+      <input type="text" id="localidad" name="localidad" required />
+
+      <label for="diaEntrega">4️⃣ Día preferido de entrega:</label>
+      <select id="diaEntrega" name="diaEntrega" required>
+        <option value="">Seleccionar...</option>
+        <option value="Lunes">Lunes</option>
+        <option value="Martes">Martes</option>
+        <option value="Miércoles">Miércoles</option>
+        <option value="Jueves">Jueves</option>
+        <option value="Viernes">Viernes</option>
+        <option value="Sábado">Sábado</option>
+      </select>
+
+      <label for="pedidoTexto">5️⃣ Pedido:</label>
+      <textarea id="pedidoTexto" name="pedidoTexto" rows="4" placeholder="Ej: 2 Tutti, 1 Cono blanco..." required></textarea>
+
+      <button type="submit" class="btn enviar">Enviar pedido por WhatsApp</button>
+    </form>
+  </div>
+</div>
+
+
 
   <!-- Botón Ver Todos -->
   <div class="ver-todos">
@@ -161,7 +202,6 @@
 
 </section>
 
-
   <section id="contacto">
     <h2>Contacto</h2>
     <p>¿Querés más info o nuestro catálogo?</p>
@@ -190,6 +230,56 @@
       </a>
     </div>
   </footer>
+<script>
+  const modalPedido = document.getElementById("modalPedido");
+  const abrirPedido = document.getElementById("abrirPedido");
+  const cerrarPedido = document.getElementById("cerrarPedido");
+  const pedidoForm = document.getElementById("pedidoForm");
+
+  const numeroWhatsApp = "5493491433544"; // Tu número sin + ni espacios
+
+  // Abrir modal
+  abrirPedido.addEventListener("click", () => {
+    modalPedido.classList.add("active");
+  });
+
+  // Cerrar modal
+  cerrarPedido.addEventListener("click", () => {
+    modalPedido.classList.remove("active");
+  });
+
+  // Enviar pedido
+  pedidoForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const negocio = document.getElementById("nombreNegocio").value.trim();
+    const dueno = document.getElementById("nombreDueno").value.trim();
+    const localidad = document.getElementById("localidad").value.trim();
+    const diaEntrega = document.getElementById("diaEntrega").value.trim();
+    const pedido = document.getElementById("pedidoTexto").value.trim();
+
+    // Mensaje formateado solo con negrita
+    const mensaje = `Hola! Soy *${negocio}* de *${localidad}*.
+*Dueño/a:* ${dueno}.
+*Día preferido de entrega:* ${diaEntrega}.
+
+Quisiera hacer el siguiente pedido:
+
+${pedido
+      .split(/[,;\n]/)
+      .map(p => `• ${p.trim()}`)
+      .join("\n")}`;
+
+    // Codificar y abrir WhatsApp
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+    window.open(url, "_blank");
+
+    // Cerrar modal y limpiar formulario
+    modalPedido.classList.remove("active");
+    pedidoForm.reset();
+  });
+</script>
+
 </body>
 </html>
 
